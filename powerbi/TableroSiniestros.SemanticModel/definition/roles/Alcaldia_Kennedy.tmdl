@@ -1,0 +1,4 @@
+role Alcaldia_Kennedy
+	modelPermission: read
+
+	tablePermission siniestros = [Localidad] == "Kennedy"

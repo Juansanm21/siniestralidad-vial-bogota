@@ -1,0 +1,329 @@
+table actor_vial
+	lineageTag: 7174efb4-d802-d1b0-f314-c9ac1e1ff399
+
+	column id_siniestro
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: id_siniestro
+		lineageTag: 422a589a-621d-7029-9fb7-678a9fc35e61
+
+	column Codigo_Accidentado
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Codigo_Accidentado
+		lineageTag: 54ec4f95-ad62-b6a7-0307-18d0e67932b9
+
+	column Codigo_Accidente
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Codigo_Accidente
+		lineageTag: 6b52be45-0936-b60a-5fe1-2f26381a846a
+
+	column Formulario
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Formulario
+		lineageTag: 87ff9ad5-ba95-6b69-b85c-39c71fea8979
+
+	column Codigo_Vehiculo
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Codigo_Vehiculo
+		lineageTag: 87c63aa1-514d-e323-feb1-979dcf727435
+
+	column Ccodigo_Victima
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Ccodigo_Victima
+		lineageTag: fe03094a-adaf-0dce-c70e-a097cf3d767e
+
+	column FechaAcc
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: FechaAcc
+		lineageTag: 0156787d-867d-0929-be28-d17361d6e4c6
+
+	column AnnoAcc
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: AnnoAcc
+		lineageTag: 3dcc9f58-c733-a1fd-7520-4d032498e8ac
+
+	column mesAcc
+		dataType: string
+		summarizeBy: none
+		sourceColumn: mesAcc
+		lineageTag: 65a60c38-7521-c4ef-fb3a-1eee6fa66e40
+
+	column DD_Mes_Acc
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: DD_Mes_Acc
+		lineageTag: 3a2586da-8a40-92c7-38fa-bb563e9c76a6
+
+	column Dia_Semana_Acc
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Dia_Semana_Acc
+		lineageTag: 156fef14-d16a-53ba-f534-ac71a25ed201
+
+	column hourAcc
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: hourAcc
+		lineageTag: e281a0fe-de29-8db1-ebac-bbffd345f84d
+
+	column minuAcc
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: minuAcc
+		lineageTag: ab1a6247-4f97-ae3e-deaf-f54eb9c8e4c3
+
+	column Localidad
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Localidad
+		lineageTag: 6fe4f838-bffc-2945-cc7d-f6a7edac14f9
+
+	column Edad
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Edad
+		lineageTag: 613709ba-b7d9-b4a4-cba4-59da0d0d29d5
+
+	column Sexo
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Sexo
+		lineageTag: ad69cc60-618d-8e41-e502-9a9e0b2d0bad
+
+	column Gravedad_Indicador_Tradicional
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Gravedad_Indicador_Tradicional
+		lineageTag: e8fa234c-eead-1403-d6d7-a92c0a5b01f2
+
+	column Muerte_Posterior
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Muerte_Posterior
+		lineageTag: 1de9a1f2-413f-b83e-f8d6-69f0874ac264
+
+	column Fecha_CambioGravedad
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: Fecha_CambioGravedad
+		lineageTag: e70ea76e-25b5-48ce-1f06-3149d600eea4
+
+	column Gravedad_Indicador_30d
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Gravedad_Indicador_30d
+		lineageTag: 8d4ee378-334d-6423-9973-99d45c84f321
+
+	column Condicion
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Condicion
+		lineageTag: 6d5a00ad-31b5-2ac7-3a12-7ec54e3edd66
+
+	column Condicion_Especifica
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Condicion_Especifica
+		lineageTag: 75a7e7e0-6ea1-92e0-5c3e-9243149d6219
+
+	column Tipo_SITP
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Tipo_SITP
+		lineageTag: a7eb1f18-2e53-8f21-ff6d-1ce9f9b3be91
+
+	column Con_Bicicleta
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Bicicleta
+		lineageTag: 16e2312f-4359-aedf-8cf4-07e4341aec16
+
+	column Con_Carga
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Carga
+		lineageTag: 5a8d8243-30c8-1cb3-1c0c-e9b1fcf70a08
+
+	column Con_Embriaguez
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Embriaguez
+		lineageTag: 43e77a12-fb2b-af1d-cdcf-8cc3414f75dd
+
+	column Con_Huecos
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Huecos
+		lineageTag: 74cb81b5-909e-8157-fd69-7c631fb77506
+
+	column Con_Menores
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Menores
+		lineageTag: a8332b7f-dd63-1263-c1f8-a5bcc8d5cf31
+
+	column Con_Moto
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Moto
+		lineageTag: 46ede9c3-a719-21dd-7362-3505b1a3b70b
+
+	column Con_Peaton
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Peaton
+		lineageTag: 3647e868-f194-e61b-ffc7-ba9bf84f86ca
+
+	column Con_Persona_Mayor
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Persona_Mayor
+		lineageTag: b6ae76ea-7ad1-a9e9-0c06-7368dd905b92
+
+	column Con_Rutas
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Rutas
+		lineageTag: 7cf91fd1-6aed-28c7-3766-15ee87b7e5e0
+
+	column Con_Tpi
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Tpi
+		lineageTag: 03550070-5d48-65c6-1ed8-b5f84e4a7b03
+
+	column Con_Tpp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Tpp
+		lineageTag: 2519eb90-2fe6-bcca-83c3-711d89b4d484
+
+	column Con_Velocidad
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Velocidad
+		lineageTag: b5ddc4d2-4793-ca03-8841-82c5f3ee7194
+
+	column Con_Sitp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Sitp
+		lineageTag: fb5e9b58-75ef-bc14-664b-11b2af339c27
+
+	column Con_Troncal
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Troncal
+		lineageTag: de202d51-03bb-35ee-e69e-cf756d4d6ea3
+
+	column Con_Alimentador
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Alimentador
+		lineageTag: 34653b89-9cf6-9572-0cd4-50f1a22cb383
+
+	column Con_Zonal
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Zonal
+		lineageTag: 2c73b65c-1bc1-4077-7fe7-845f230ffa4d
+
+	column Con_Provisional
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Provisional
+		lineageTag: 9c4071a9-25d0-b65d-711a-1a0b34e05fa1
+
+	column Con_Articulado
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Articulado
+		lineageTag: e0e2176a-af59-3c44-f09d-833e4c6c89cf
+
+	column Con_Biarticulado
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Biarticulado
+		lineageTag: 72e26c1d-0b5b-0799-ca93-0170a194db27
+
+	column Con_Padron_Dual
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Padron_Dual
+		lineageTag: 10964c81-6c2d-14dc-39c5-3452fcf30226
+
+	column Con_Servicio_Especial
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Servicio_Especial
+		lineageTag: b4aa13ee-f44a-3d3f-0ac5-9459d4de1746
+
+	column Con_Taxi
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Taxi
+		lineageTag: 403cda69-9121-b173-18b8-b7892e3b8150
+
+	column anuario_origen
+		dataType: string
+		summarizeBy: none
+		sourceColumn: anuario_origen
+		lineageTag: 94c58f7b-dda8-effc-5633-dccc33d79efd
+
+	column victimaC
+		dataType: string
+		summarizeBy: none
+		sourceColumn: victimaC
+		lineageTag: b0075062-d887-1df9-27aa-431be1ea907b
+
+	column asociadoC
+		dataType: string
+		summarizeBy: none
+		sourceColumn: asociadoC
+		lineageTag: e2314b61-c5c0-32aa-a3ff-ea8965f58226
+
+	column estado
+		dataType: string
+		summarizeBy: none
+		sourceColumn: estado
+		lineageTag: 775b3957-f2ea-ea3d-feb3-44cf6434abb4
+
+	column actor
+		dataType: string
+		summarizeBy: none
+		sourceColumn: actor
+		lineageTag: 7384ca57-c4c0-313b-3343-e174789bcc72
+
+	column grupo_edad
+		dataType: string
+		summarizeBy: none
+		sourceColumn: grupo_edad
+		lineageTag: 02a7d99d-4f50-e1f7-693b-0b175d8171ff
+
+	partition actor_vial = m
+		mode: import
+		source =
+				let
+				    Binario = if Text.StartsWith(RutaDatos, "http") then Web.Contents(RutaDatos & "actor_vial.csv.gz") else File.Contents(RutaDatos & "actor_vial.csv.gz"),
+				    Origen = Csv.Document(Binary.Decompress(Binario, Compression.GZip), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    SinBOM = Table.TransformColumnNames(Encabezados, each Text.Replace(_, Character.FromNumber(65279), "")),
+				    Vacios = Table.TransformColumns(SinBOM, {}, each if _ = "" then null else _),
+				    Tipos = Table.TransformColumnTypes(Vacios, {{"id_siniestro", type text}, {"Codigo_Accidentado", Int64.Type}, {"Codigo_Accidente", Int64.Type}, {"Formulario", type text}, {"Codigo_Vehiculo", Int64.Type}, {"Ccodigo_Victima", Int64.Type}, {"FechaAcc", type date}, {"AnnoAcc", Int64.Type}, {"mesAcc", type text}, {"DD_Mes_Acc", Int64.Type}, {"Dia_Semana_Acc", type text}, {"hourAcc", Int64.Type}, {"minuAcc", Int64.Type}, {"Localidad", type text}, {"Edad", Int64.Type}, {"Sexo", type text}, {"Gravedad_Indicador_Tradicional", type text}, {"Muerte_Posterior", type text}, {"Fecha_CambioGravedad", type date}, {"Gravedad_Indicador_30d", type text}, {"Condicion", type text}, {"Condicion_Especifica", type text}, {"Tipo_SITP", type text}, {"Con_Bicicleta", type text}, {"Con_Carga", type text}, {"Con_Embriaguez", type text}, {"Con_Huecos", type text}, {"Con_Menores", type text}, {"Con_Moto", type text}, {"Con_Peaton", type text}, {"Con_Persona_Mayor", type text}, {"Con_Rutas", type text}, {"Con_Tpi", type text}, {"Con_Tpp", type text}, {"Con_Velocidad", type text}, {"Con_Sitp", type text}, {"Con_Troncal", type text}, {"Con_Alimentador", type text}, {"Con_Zonal", type text}, {"Con_Provisional", type text}, {"Con_Articulado", type text}, {"Con_Biarticulado", type text}, {"Con_Padron_Dual", type text}, {"Con_Servicio_Especial", type text}, {"Con_Taxi", type text}, {"anuario_origen", type text}, {"victimaC", type text}, {"asociadoC", type text}}, "en-US"),
+				    Banderas = Table.TransformColumns(Tipos, {{"Con_Bicicleta", each if _ = null then "NO" else _, type text}, {"Con_Carga", each if _ = null then "NO" else _, type text}, {"Con_Embriaguez", each if _ = null then "NO" else _, type text}, {"Con_Huecos", each if _ = null then "NO" else _, type text}, {"Con_Menores", each if _ = null then "NO" else _, type text}, {"Con_Moto", each if _ = null then "NO" else _, type text}, {"Con_Peaton", each if _ = null then "NO" else _, type text}, {"Con_Persona_Mayor", each if _ = null then "NO" else _, type text}, {"Con_Rutas", each if _ = null then "NO" else _, type text}, {"Con_Tpi", each if _ = null then "NO" else _, type text}, {"Con_Tpp", each if _ = null then "NO" else _, type text}, {"Con_Velocidad", each if _ = null then "NO" else _, type text}, {"Con_Sitp", each if _ = null then "NO" else _, type text}, {"Con_Troncal", each if _ = null then "NO" else _, type text}, {"Con_Alimentador", each if _ = null then "NO" else _, type text}, {"Con_Zonal", each if _ = null then "NO" else _, type text}, {"Con_Provisional", each if _ = null then "NO" else _, type text}, {"Con_Articulado", each if _ = null then "NO" else _, type text}, {"Con_Biarticulado", each if _ = null then "NO" else _, type text}, {"Con_Padron_Dual", each if _ = null then "NO" else _, type text}, {"Con_Servicio_Especial", each if _ = null then "NO" else _, type text}, {"Con_Taxi", each if _ = null then "NO" else _, type text}}),
+				    Estado = Table.AddColumn(Banderas, "estado", each let g = Text.Upper(if [Gravedad_Indicador_30d] = null then "" else [Gravedad_Indicador_30d]) in if g = "MUERTO" then "Fallecido" else if g = "HERIDO" then "Herido" else if g = "ILESO" then "Ileso" else "Sin dato", type text),
+				    Actor = Table.AddColumn(Estado, "actor", each let e = if [Condicion_Especifica] = null then "" else [Condicion_Especifica] in if List.Contains({"Motociclista", "Pasajero Motocicleta"}, e) then "Motociclista" else if e = "Peatón" then "Peatón" else if List.Contains({"Ciclista", "Pasajero Bicicleta"}, e) then "Ciclista" else "Ocupante de otro vehículo", type text),
+				    Sexo = Table.TransformColumns(Actor, {{"Sexo", each if _ = null or Text.Upper(_) = "SIN INFORMACION" then "Sin información" else Text.Proper(_), type text}}),
+				    Edad = Table.AddColumn(Sexo, "grupo_edad", each if [Edad] = null then "Sin dato" else if [Edad] < 18 then "0-17" else if [Edad] < 30 then "18-29" else if [Edad] < 45 then "30-44" else if [Edad] < 60 then "45-59" else "60 o más", type text)
+				in
+				    Edad
+
+	annotation PBI_ResultType = Table

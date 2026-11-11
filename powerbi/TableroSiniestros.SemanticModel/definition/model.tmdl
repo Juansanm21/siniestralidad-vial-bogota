@@ -1,0 +1,21 @@
+model Model
+	culture: es-CO
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-CO
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["RutaDatos", "Calendario", "siniestros", "actor_vial", "vehiculos", "Meta", "Medidas"]
+
+annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop"]
+
+ref table Calendario
+ref table siniestros
+ref table actor_vial
+ref table vehiculos
+ref table Meta
+ref table Medidas
+
+ref role Direccion
+ref role Alcaldia_Kennedy

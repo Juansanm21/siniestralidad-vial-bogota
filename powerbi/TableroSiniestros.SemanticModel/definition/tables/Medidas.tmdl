@@ -1,0 +1,462 @@
+table Medidas
+	lineageTag: a806eeb8-2c92-9b5d-4c90-0abb862f12d0
+
+	measure Fallecidos = CALCULATE(COUNTROWS(actor_vial), actor_vial[estado] = "Fallecido")
+		formatString: #,0
+		displayFolder: 1 Base
+		lineageTag: ee40f546-e0ed-b973-0514-bbcda2455cd0
+
+	measure Lesionados = CALCULATE(COUNTROWS(actor_vial), actor_vial[estado] = "Herido")
+		formatString: #,0
+		displayFolder: 1 Base
+		lineageTag: fe09a73f-9621-eccf-e028-36a032458b3e
+
+	measure Víctimas = [Fallecidos] + [Lesionados]
+		formatString: #,0
+		displayFolder: 1 Base
+		lineageTag: cc3a93ee-87f0-1d47-09d2-a9cbbe0a99cc
+
+	measure Siniestros = COUNTROWS(siniestros)
+		formatString: #,0
+		displayFolder: 1 Base
+		lineageTag: 27a78ea0-ace2-bf4c-79ca-cf5746cfcd21
+
+	measure 'Fallecidos AA' = CALCULATE([Fallecidos], SAMEPERIODLASTYEAR(Calendario[Fecha]), REMOVEFILTERS(Calendario))
+		formatString: #,0
+		displayFolder: 1 Base
+		lineageTag: 46796ac6-8754-be7c-3b12-85c4df4d5b83
+
+	measure 'Lesionados AA' = CALCULATE([Lesionados], SAMEPERIODLASTYEAR(Calendario[Fecha]), REMOVEFILTERS(Calendario))
+		formatString: #,0
+		displayFolder: 1 Base
+		lineageTag: 971a329e-69ca-1529-7922-98c13b1361b4
+
+	measure 'Var Fallecidos' = DIVIDE([Fallecidos] - [Fallecidos AA], [Fallecidos AA])
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 1 Base
+		lineageTag: fd1ae275-e42c-baca-8e5f-7053cdbf4cb6
+
+	measure 'Var Lesionados' = DIVIDE([Lesionados] - [Lesionados AA], [Lesionados AA])
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 1 Base
+		lineageTag: f90a926f-38dc-a626-dd6b-18d7b154510a
+
+	measure 'Fallecidos por semana' = DIVIDE([Fallecidos], DIVIDE(COUNTROWS(Calendario), 7))
+		formatString: 0.0
+		displayFolder: 1 Base
+		lineageTag: 7b4e0cf4-4bb0-a5ac-17dd-7393bdeb3525
+
+	measure '% Motociclistas' = DIVIDE(CALCULATE([Fallecidos], actor_vial[actor] = "Motociclista"), [Fallecidos])
+		formatString: 0.0%
+		displayFolder: 2 Indicadores
+		lineageTag: ea3f263d-f871-afe2-1def-5cb806e67002
+
+	measure '% De noche' = DIVIDE(CALCULATE([Fallecidos], siniestros[dia_noche] = "Noche"), [Fallecidos])
+		formatString: 0.0%
+		displayFolder: 2 Indicadores
+		lineageTag: b36e0e31-b508-7875-2859-72cf8414cf74
+
+	measure '% Con carga' = DIVIDE(CALCULATE([Fallecidos], actor_vial[Con_Carga] = "SI"), [Fallecidos])
+		formatString: 0.0%
+		displayFolder: 2 Indicadores
+		lineageTag: e3a7d8ff-006c-af19-1c69-042efd15a1e7
+
+	measure '% Moto madrugada' = DIVIDE(CALCULATE([Fallecidos], actor_vial[actor] = "Motociclista", siniestros[Hora_Acc] <= 5), CALCULATE([Fallecidos], actor_vial[actor] = "Motociclista"))
+		formatString: 0.0%
+		displayFolder: 2 Indicadores
+		lineageTag: 4ada6d74-d557-f728-d402-942607ffbcbb
+
+	measure Letalidad = DIVIDE([Fallecidos], [Víctimas]) * 100
+		formatString: 0.00
+		displayFolder: 2 Indicadores
+		lineageTag: 3ae4d0e9-ad0e-d60d-7802-e48d09ffa3c6
+
+	measure 'Letalidad moto' = CALCULATE([Letalidad], actor_vial[actor] = "Motociclista")
+		formatString: 0.00
+		displayFolder: 2 Indicadores
+		lineageTag: 0f15b658-c51c-fc71-3f47-7b2ec7042db9
+
+	measure 'Letalidad noche' = CALCULATE([Letalidad], siniestros[dia_noche] = "Noche")
+		formatString: 0.00
+		displayFolder: 2 Indicadores
+		lineageTag: 5f72d2d7-22fb-45b6-d6ed-715f59fd853c
+
+	measure 'Letalidad día' = CALCULATE([Letalidad], siniestros[dia_noche] = "Día")
+		formatString: 0.00
+		displayFolder: 2 Indicadores
+		lineageTag: 539de05a-0bda-5fe4-58f5-54edbbab9c19
+
+	measure '% Motociclistas AA' = CALCULATE([% Motociclistas], SAMEPERIODLASTYEAR(Calendario[Fecha]), REMOVEFILTERS(Calendario))
+		formatString: 0.0%
+		displayFolder: 3 Año anterior
+		lineageTag: 88581c67-9279-bc65-3121-46fa52eea9a6
+
+	measure '% De noche AA' = CALCULATE([% De noche], SAMEPERIODLASTYEAR(Calendario[Fecha]), REMOVEFILTERS(Calendario))
+		formatString: 0.0%
+		displayFolder: 3 Año anterior
+		lineageTag: 7987bdb1-5c90-1c14-d107-1ee72e6ba5fc
+
+	measure '% Con carga AA' = CALCULATE([% Con carga], SAMEPERIODLASTYEAR(Calendario[Fecha]), REMOVEFILTERS(Calendario))
+		formatString: 0.0%
+		displayFolder: 3 Año anterior
+		lineageTag: 856d9725-08b0-e394-7b2f-06d17d7c9767
+
+	measure 'Letalidad moto AA' = CALCULATE([Letalidad moto], SAMEPERIODLASTYEAR(Calendario[Fecha]), REMOVEFILTERS(Calendario))
+		formatString: 0.00
+		displayFolder: 3 Año anterior
+		lineageTag: b36f25de-d1a2-3d80-a8b9-38fc874e807a
+
+	measure 'Txt Fallecidos' =
+			VAR aa = [Fallecidos AA]
+			VAR v = [Var Fallecidos]
+			RETURN IF(ISBLANK(aa), "Sin año anterior", IF(v > 0, "▲ ", "▼ ") & FORMAT(ABS(v), "0.0%") & " vs año anterior")
+		displayFolder: 4 Textos y colores
+		lineageTag: e2b6a917-19c0-7b92-03d3-07906832af91
+
+	measure 'Color Txt Fallecidos' =
+			VAR aa = [Fallecidos AA]
+			RETURN IF(ISBLANK(aa), "#667085", IF([Fallecidos] > aa, "#D92D20", "#079455"))
+		displayFolder: 4 Textos y colores
+		lineageTag: cc7350cf-22a1-e7b7-2bcd-b6e74856892a
+
+	measure 'Txt Lesionados' =
+			VAR aa = [Lesionados AA]
+			VAR v = [Var Lesionados]
+			RETURN IF(ISBLANK(aa), "Sin año anterior", IF(v > 0, "▲ ", "▼ ") & FORMAT(ABS(v), "0.0%") & " vs año anterior")
+		displayFolder: 4 Textos y colores
+		lineageTag: 36a29803-c567-6c5b-fcc2-77efc991cc80
+
+	measure 'Color Txt Lesionados' =
+			VAR aa = [Lesionados AA]
+			RETURN IF(ISBLANK(aa), "#667085", IF([Lesionados] > aa, "#D92D20", "#079455"))
+		displayFolder: 4 Textos y colores
+		lineageTag: 7a73b6b9-5e30-c220-7bd6-275f53a96507
+
+	measure 'Txt % Motociclistas' =
+			VAR aa = [% Motociclistas AA]
+			VAR d = ([% Motociclistas] - aa) * 100
+			RETURN IF(ISBLANK(aa) || ISBLANK([% Motociclistas]), "Sin año anterior", IF(d > 0, "▲ ", "▼ ") & FORMAT(ABS(d), "0.0") & " pp vs año anterior")
+		displayFolder: 4 Textos y colores
+		lineageTag: 3d3f0922-033c-0216-28ab-7a8bf551473e
+
+	measure 'Color Txt % Motociclistas' =
+			VAR aa = [% Motociclistas AA]
+			RETURN IF(ISBLANK(aa), "#667085", IF([% Motociclistas] > aa, "#D92D20", "#079455"))
+		displayFolder: 4 Textos y colores
+		lineageTag: 111f95b1-fffc-ea69-d0a0-bb128a79af23
+
+	measure 'Txt % De noche' =
+			VAR aa = [% De noche AA]
+			VAR d = ([% De noche] - aa) * 100
+			RETURN IF(ISBLANK(aa) || ISBLANK([% De noche]), "Sin año anterior", IF(d > 0, "▲ ", "▼ ") & FORMAT(ABS(d), "0.0") & " pp vs año anterior")
+		displayFolder: 4 Textos y colores
+		lineageTag: 8035b19f-37f3-e318-9a5b-5ff9f1e29d2e
+
+	measure 'Color Txt % De noche' =
+			VAR aa = [% De noche AA]
+			RETURN IF(ISBLANK(aa), "#667085", IF([% De noche] > aa, "#D92D20", "#079455"))
+		displayFolder: 4 Textos y colores
+		lineageTag: f0b73ac9-5822-e085-c82d-29efb75629cb
+
+	measure 'Txt % Con carga' =
+			VAR aa = [% Con carga AA]
+			VAR d = ([% Con carga] - aa) * 100
+			RETURN IF(ISBLANK(aa) || ISBLANK([% Con carga]), "Sin año anterior", IF(d > 0, "▲ ", "▼ ") & FORMAT(ABS(d), "0.0") & " pp vs año anterior")
+		displayFolder: 4 Textos y colores
+		lineageTag: f8971081-160f-2b33-c47a-e3d63b5f038d
+
+	measure 'Color Txt % Con carga' =
+			VAR aa = [% Con carga AA]
+			RETURN IF(ISBLANK(aa), "#667085", IF([% Con carga] > aa, "#D92D20", "#079455"))
+		displayFolder: 4 Textos y colores
+		lineageTag: 9acf5565-80ff-392f-115f-9a7b8de47e3c
+
+	measure 'Txt Letalidad moto' =
+			VAR aa = [Letalidad moto AA]
+			VAR d = ([Letalidad moto] - aa) * 1
+			RETURN IF(ISBLANK(aa) || ISBLANK([Letalidad moto]), "Sin año anterior", IF(d > 0, "▲ ", "▼ ") & FORMAT(ABS(d), "0.0") & " vs año anterior")
+		displayFolder: 4 Textos y colores
+		lineageTag: 401381b2-ea7a-2b76-394f-3c91bc1ddb33
+
+	measure 'Color Txt Letalidad moto' =
+			VAR aa = [Letalidad moto AA]
+			RETURN IF(ISBLANK(aa), "#667085", IF([Letalidad moto] > aa, "#D92D20", "#079455"))
+		displayFolder: 4 Textos y colores
+		lineageTag: 01a76536-7e9c-11ad-b0b9-f2e8daa86bec
+
+	measure 'Meta reducción' = SELECTEDVALUE(Meta[Reduccion], 10) / 100
+		formatString: 0%
+		displayFolder: 6 Meta y estado
+		lineageTag: f532edb8-6ee2-239e-0301-cd3c79ec6baf
+
+	measure 'Meta Fallecidos' = [Fallecidos AA] * (1 - [Meta reducción])
+		displayFolder: 6 Meta y estado
+		lineageTag: e69e8670-2682-53f7-28d4-f9538e683b59
+
+	measure 'Estado Fallecidos' =
+			VAR aa = [Fallecidos AA]
+			VAR x = [Fallecidos]
+			RETURN IF(ISBLANK(aa) || ISBLANK(x), 0, IF(x <= aa * (1 - [Meta reducción]), 1, IF(x <= aa, 2, 3)))
+		formatString: 0
+		displayFolder: 6 Meta y estado
+		lineageTag: b0db5e56-fa4e-8d51-2c1f-662bc74215c9
+
+	measure 'Txt estado Fallecidos' = SWITCH([Estado Fallecidos], 1, "● Cumple la meta", 2, "● Mejora, sin cumplir la meta", 3, "● Empeora frente al año anterior", "● Sin año anterior para comparar")
+		displayFolder: 6 Meta y estado
+		lineageTag: 3bd08a68-c810-ca1c-1377-88dd17044410
+
+	measure 'Fondo estado Fallecidos' = SWITCH([Estado Fallecidos], 1, "#DCFAE6", 2, "#FEF0C7", 3, "#FEE4E2", "#F2F4F7")
+		displayFolder: 6 Meta y estado
+		lineageTag: 8e21b726-10a8-c489-45a9-5b7b2da24c75
+
+	measure 'Texto estado Fallecidos' = SWITCH([Estado Fallecidos], 1, "#067647", 2, "#B54708", 3, "#B42318", "#667085")
+		displayFolder: 6 Meta y estado
+		lineageTag: 37ea2863-6371-9b66-233d-41d9d8302b2f
+
+	measure 'Meta Lesionados' = [Lesionados AA] * (1 - [Meta reducción])
+		displayFolder: 6 Meta y estado
+		lineageTag: eb665343-8fea-b29e-13e1-09f15e178498
+
+	measure 'Estado Lesionados' =
+			VAR aa = [Lesionados AA]
+			VAR x = [Lesionados]
+			RETURN IF(ISBLANK(aa) || ISBLANK(x), 0, IF(x <= aa * (1 - [Meta reducción]), 1, IF(x <= aa, 2, 3)))
+		formatString: 0
+		displayFolder: 6 Meta y estado
+		lineageTag: e0847ade-2fc2-7a5e-dea2-39acc9e9adbf
+
+	measure 'Txt estado Lesionados' = SWITCH([Estado Lesionados], 1, "● Cumple la meta", 2, "● Mejora, sin cumplir la meta", 3, "● Empeora frente al año anterior", "● Sin año anterior para comparar")
+		displayFolder: 6 Meta y estado
+		lineageTag: 078e5ff0-8339-8430-8f39-c1fa7df96821
+
+	measure 'Fondo estado Lesionados' = SWITCH([Estado Lesionados], 1, "#DCFAE6", 2, "#FEF0C7", 3, "#FEE4E2", "#F2F4F7")
+		displayFolder: 6 Meta y estado
+		lineageTag: a9c2b177-a3ab-270b-42d5-856d78b19ff1
+
+	measure 'Texto estado Lesionados' = SWITCH([Estado Lesionados], 1, "#067647", 2, "#B54708", 3, "#B42318", "#667085")
+		displayFolder: 6 Meta y estado
+		lineageTag: 7b69a70d-0a0b-530b-4963-13e7a99d1a2e
+
+	measure 'Meta % Motociclistas' = [% Motociclistas AA] * (1 - [Meta reducción])
+		displayFolder: 6 Meta y estado
+		lineageTag: 40720ff8-b3f2-76c5-99bc-d9e26d3395d8
+
+	measure 'Estado % Motociclistas' =
+			VAR aa = [% Motociclistas AA]
+			VAR x = [% Motociclistas]
+			RETURN IF(ISBLANK(aa) || ISBLANK(x), 0, IF(x <= aa * (1 - [Meta reducción]), 1, IF(x <= aa, 2, 3)))
+		formatString: 0
+		displayFolder: 6 Meta y estado
+		lineageTag: e41d3e77-3616-340e-d675-e021010b37c1
+
+	measure 'Txt estado % Motociclistas' = SWITCH([Estado % Motociclistas], 1, "● Cumple la meta", 2, "● Mejora, sin cumplir la meta", 3, "● Empeora frente al año anterior", "● Sin año anterior para comparar")
+		displayFolder: 6 Meta y estado
+		lineageTag: eae4d24c-15db-a341-9186-506a24ba53c2
+
+	measure 'Fondo estado % Motociclistas' = SWITCH([Estado % Motociclistas], 1, "#DCFAE6", 2, "#FEF0C7", 3, "#FEE4E2", "#F2F4F7")
+		displayFolder: 6 Meta y estado
+		lineageTag: 7be44fbe-27e6-55ff-9dd9-68c462394b24
+
+	measure 'Texto estado % Motociclistas' = SWITCH([Estado % Motociclistas], 1, "#067647", 2, "#B54708", 3, "#B42318", "#667085")
+		displayFolder: 6 Meta y estado
+		lineageTag: 5956c2f2-4013-e98d-7eed-d0376c0764ec
+
+	measure 'Meta % De noche' = [% De noche AA] * (1 - [Meta reducción])
+		displayFolder: 6 Meta y estado
+		lineageTag: dd98ff5c-e889-38c5-a82a-6cd8089fb954
+
+	measure 'Estado % De noche' =
+			VAR aa = [% De noche AA]
+			VAR x = [% De noche]
+			RETURN IF(ISBLANK(aa) || ISBLANK(x), 0, IF(x <= aa * (1 - [Meta reducción]), 1, IF(x <= aa, 2, 3)))
+		formatString: 0
+		displayFolder: 6 Meta y estado
+		lineageTag: 292242a7-ad0a-4f85-70cd-df6a343bd179
+
+	measure 'Txt estado % De noche' = SWITCH([Estado % De noche], 1, "● Cumple la meta", 2, "● Mejora, sin cumplir la meta", 3, "● Empeora frente al año anterior", "● Sin año anterior para comparar")
+		displayFolder: 6 Meta y estado
+		lineageTag: 22c01eb0-0720-e511-3868-ad6f162f4a73
+
+	measure 'Fondo estado % De noche' = SWITCH([Estado % De noche], 1, "#DCFAE6", 2, "#FEF0C7", 3, "#FEE4E2", "#F2F4F7")
+		displayFolder: 6 Meta y estado
+		lineageTag: 6f3fa63b-1c73-aa53-4322-a4ef3bac4a6b
+
+	measure 'Texto estado % De noche' = SWITCH([Estado % De noche], 1, "#067647", 2, "#B54708", 3, "#B42318", "#667085")
+		displayFolder: 6 Meta y estado
+		lineageTag: a2a0b052-b6d5-2949-d8d1-6f3541f117cb
+
+	measure 'Meta % Con carga' = [% Con carga AA] * (1 - [Meta reducción])
+		displayFolder: 6 Meta y estado
+		lineageTag: ce453514-7b28-6ed3-2b78-5eb20e9f7063
+
+	measure 'Estado % Con carga' =
+			VAR aa = [% Con carga AA]
+			VAR x = [% Con carga]
+			RETURN IF(ISBLANK(aa) || ISBLANK(x), 0, IF(x <= aa * (1 - [Meta reducción]), 1, IF(x <= aa, 2, 3)))
+		formatString: 0
+		displayFolder: 6 Meta y estado
+		lineageTag: 77fafeec-0d7a-8753-3d90-221e72b2acb8
+
+	measure 'Txt estado % Con carga' = SWITCH([Estado % Con carga], 1, "● Cumple la meta", 2, "● Mejora, sin cumplir la meta", 3, "● Empeora frente al año anterior", "● Sin año anterior para comparar")
+		displayFolder: 6 Meta y estado
+		lineageTag: 97f089df-a3dd-de81-726d-f9b5fc9b553d
+
+	measure 'Fondo estado % Con carga' = SWITCH([Estado % Con carga], 1, "#DCFAE6", 2, "#FEF0C7", 3, "#FEE4E2", "#F2F4F7")
+		displayFolder: 6 Meta y estado
+		lineageTag: 527067c8-6ec6-153d-5ae4-86661a8f535b
+
+	measure 'Texto estado % Con carga' = SWITCH([Estado % Con carga], 1, "#067647", 2, "#B54708", 3, "#B42318", "#667085")
+		displayFolder: 6 Meta y estado
+		lineageTag: 5dbdbd33-6b5f-2013-8ded-96683c22a9b1
+
+	measure 'Meta Letalidad moto' = [Letalidad moto AA] * (1 - [Meta reducción])
+		displayFolder: 6 Meta y estado
+		lineageTag: 8c76e8e0-2833-363f-8765-7a60c71b3773
+
+	measure 'Estado Letalidad moto' =
+			VAR aa = [Letalidad moto AA]
+			VAR x = [Letalidad moto]
+			RETURN IF(ISBLANK(aa) || ISBLANK(x), 0, IF(x <= aa * (1 - [Meta reducción]), 1, IF(x <= aa, 2, 3)))
+		formatString: 0
+		displayFolder: 6 Meta y estado
+		lineageTag: 4da046ce-cd92-ff44-0ae9-910caa0bd64c
+
+	measure 'Txt estado Letalidad moto' = SWITCH([Estado Letalidad moto], 1, "● Cumple la meta", 2, "● Mejora, sin cumplir la meta", 3, "● Empeora frente al año anterior", "● Sin año anterior para comparar")
+		displayFolder: 6 Meta y estado
+		lineageTag: b23987cf-eaef-9ecc-2b4c-6a81f6d08c87
+
+	measure 'Fondo estado Letalidad moto' = SWITCH([Estado Letalidad moto], 1, "#DCFAE6", 2, "#FEF0C7", 3, "#FEE4E2", "#F2F4F7")
+		displayFolder: 6 Meta y estado
+		lineageTag: 1770b5ec-5125-8e85-53b8-51a68f5b73ce
+
+	measure 'Texto estado Letalidad moto' = SWITCH([Estado Letalidad moto], 1, "#067647", 2, "#B54708", 3, "#B42318", "#667085")
+		displayFolder: 6 Meta y estado
+		lineageTag: bcf726a5-ba73-8ce5-2015-01d81e4a6ced
+
+	measure 'Meta localidad' = [Fallecidos AA] * (1 - [Meta reducción])
+		displayFolder: 6 Meta y estado
+		lineageTag: 5775b6d0-c8c9-c365-2207-7057a6cb8e40
+
+	measure 'Estado localidad' =
+			VAR aa = [Fallecidos AA]
+			VAR x = [Fallecidos]
+			RETURN IF(ISBLANK(aa) || ISBLANK(x), 0, IF(x <= aa * (1 - [Meta reducción]), 1, IF(x <= aa, 2, 3)))
+		formatString: 0
+		displayFolder: 6 Meta y estado
+		lineageTag: 5636b3c9-b992-f543-047e-70020de8e95a
+
+	measure 'Txt estado localidad' = SWITCH([Estado localidad], 1, "● Cumple la meta", 2, "● Mejora, sin cumplir la meta", 3, "● Empeora frente al año anterior", "● Sin año anterior para comparar")
+		displayFolder: 6 Meta y estado
+		lineageTag: 783ac5d5-16bc-e660-34d7-c8822f9b0988
+
+	measure 'Fondo estado localidad' = SWITCH([Estado localidad], 1, "#DCFAE6", 2, "#FEF0C7", 3, "#FEE4E2", "#F2F4F7")
+		displayFolder: 6 Meta y estado
+		lineageTag: ed6962ce-f8e4-88c2-48f8-3aca255bb254
+
+	measure 'Texto estado localidad' = SWITCH([Estado localidad], 1, "#067647", 2, "#B54708", 3, "#B42318", "#667085")
+		displayFolder: 6 Meta y estado
+		lineageTag: f3639e7c-b84a-76d6-8996-42e54144b891
+
+	measure 'Color variación localidad' = SWITCH([Estado localidad], 1, "#079455", 2, "#F79009", 3, "#D92D20", "#8C9BB0")
+		displayFolder: 4 Textos y colores
+		lineageTag: 096af567-c2a8-bb31-417a-bf7404f6f59d
+
+	measure Titulo =
+			VAR loc = IF(ISFILTERED(siniestros[Localidad]), SELECTEDVALUE(siniestros[Localidad], "varias localidades"), "Bogotá")
+			VAR act = IF(ISFILTERED(actor_vial[actor]), SELECTEDVALUE(actor_vial[actor], "varios actores"), "todas las víctimas")
+			VAR an = IF(ISFILTERED(Calendario[Año]), SELECTEDVALUE(Calendario[Año], "varios años") & "", "2015-2025")
+			VAR corte = CALCULATE(MAX(siniestros[Fecha_Acc]), REMOVEFILTERS())
+			RETURN loc & " · " & an & " · " & act & "  |  datos al " & FORMAT(corte, "dd/mm/yyyy")
+		displayFolder: 4 Textos y colores
+		lineageTag: e9473840-6b79-5920-7981-a77187a59ecc
+
+	measure 'Top localidad' =
+			VAR t = TOPN(1, FILTER(VALUES(siniestros[Localidad]), NOT ISBLANK([Fallecidos])), [Fallecidos], DESC)
+			RETURN CONCATENATEX(t, siniestros[Localidad], ", ")
+		displayFolder: 5 Lectura ejecutiva
+		lineageTag: 7253f056-167f-cc5f-f792-79fb6b7e492f
+
+	measure 'Top localidad detalle' =
+			VAR loc = [Top localidad]
+			VAR f = CALCULATE([Fallecidos], siniestros[Localidad] = loc)
+			VAR n = CALCULATE([% De noche], siniestros[Localidad] = loc)
+			RETURN FORMAT(f, "#,0") & " fallecidos · " & FORMAT(n, "0%") & " de noche"
+		displayFolder: 5 Lectura ejecutiva
+		lineageTag: bf0c2b1d-5cc1-abfe-ead7-c2f1fffbb2cf
+
+	measure 'Mayor aumento' =
+			VAR t = TOPN(1, FILTER(VALUES(siniestros[Localidad]), [Fallecidos AA] >= 5 && [Fallecidos] > [Fallecidos AA]), [Fallecidos] - [Fallecidos AA], DESC)
+			RETURN IF(COUNTROWS(t) = 0, "Ninguna localidad aumentó", CONCATENATEX(t, siniestros[Localidad], ", "))
+		displayFolder: 5 Lectura ejecutiva
+		lineageTag: c8fa79d0-2305-aa78-bafc-8b73f6ffc9a6
+
+	measure 'Mayor aumento detalle' =
+			VAR loc = [Mayor aumento]
+			VAR f = CALCULATE([Fallecidos], siniestros[Localidad] = loc)
+			VAR aa = CALCULATE([Fallecidos AA], siniestros[Localidad] = loc)
+			RETURN IF(ISBLANK(aa), "Elige un año para comparar", "De " & FORMAT(aa, "#,0") & " a " & FORMAT(f, "#,0") & " fallecidos frente al año anterior")
+		displayFolder: 5 Lectura ejecutiva
+		lineageTag: e97f8ce6-877d-5a76-e75a-594faa546d9a
+
+	measure 'Mayor reducción' =
+			VAR t = TOPN(1, FILTER(VALUES(siniestros[Localidad]), [Fallecidos AA] >= 5 && [Fallecidos] < [Fallecidos AA]), [Fallecidos AA] - [Fallecidos], DESC)
+			RETURN IF(COUNTROWS(t) = 0, "Ninguna localidad bajó", CONCATENATEX(t, siniestros[Localidad], ", "))
+		displayFolder: 5 Lectura ejecutiva
+		lineageTag: a676dcfa-8d18-ec89-0cf3-f4b49e96ebff
+
+	measure 'Mayor reducción detalle' =
+			VAR loc = [Mayor reducción]
+			VAR f = CALCULATE([Fallecidos], siniestros[Localidad] = loc)
+			VAR aa = CALCULATE([Fallecidos AA], siniestros[Localidad] = loc)
+			RETURN IF(ISBLANK(aa), "Elige un año para comparar", "De " & FORMAT(aa, "#,0") & " a " & FORMAT(f, "#,0") & " fallecidos frente al año anterior")
+		displayFolder: 5 Lectura ejecutiva
+		lineageTag: e0f556d3-9a60-4158-cb94-dcce23742e85
+
+	measure 'Hora crítica' =
+			VAR t = TOPN(1, FILTER(VALUES(siniestros[hora_txt]), NOT ISBLANK(siniestros[hora_txt]) && NOT ISBLANK([Fallecidos])), [Fallecidos], DESC)
+			RETURN CONCATENATEX(t, siniestros[hora_txt], ", ")
+		displayFolder: 5 Lectura ejecutiva
+		lineageTag: 454b0202-208a-d227-f92f-fed236703737
+
+	measure 'Hora crítica detalle' = "De noche mueren " & FORMAT([Letalidad noche], "0.0") & " de cada 100 víctimas; de día, " & FORMAT([Letalidad día], "0.0")
+		displayFolder: 5 Lectura ejecutiva
+		lineageTag: 4a446885-cd54-505a-f5ec-ad6972cfa322
+
+	measure 'Color hora' =
+			VAR h = SELECTEDVALUE(siniestros[Hora_Acc])
+			RETURN IF(ISBLANK(h), "#C5CDD8", IF(h <= 5 || h >= 18, "#E8772E", "#C5CDD8"))
+		displayFolder: 4 Textos y colores
+		lineageTag: 57dd9e59-5feb-50a6-f7c7-15051a5a2a5c
+
+	measure 'Color actor' = IF(SELECTEDVALUE(actor_vial[actor]) = "Motociclista", "#E8772E", "#C5CDD8")
+		displayFolder: 4 Textos y colores
+		lineageTag: 79737c1e-717f-9621-0d0b-2eeaecbcfc16
+
+	measure 'Color vehículo' = IF(SELECTEDVALUE(vehiculos[Vehiculo_Viajaba_Clasificado]) = "CARGA", "#E8772E", "#C5CDD8")
+		displayFolder: 4 Textos y colores
+		lineageTag: 8087451b-7b7e-054e-be6e-5cc3d5b43c6a
+
+	measure '% Siniestros mortales' =
+			DIVIDE(CALCULATE(DISTINCTCOUNT(vehiculos[id_siniestro]), siniestros[Gravedad_indicador_30d] = "Con Muertos"),
+			       CALCULATE(DISTINCTCOUNT(vehiculos[id_siniestro]), siniestros[Gravedad_indicador_30d] IN {"Con Muertos", "Con Heridos"}))
+		formatString: 0.0%
+		displayFolder: 2 Indicadores
+		lineageTag: 938cd5eb-657f-6c49-0cca-fea2563363eb
+
+	measure 'Titulo ficha' =
+			VAR loc = IF(HASONEVALUE(siniestros[Localidad]), VALUES(siniestros[Localidad]), "Elige una localidad")
+			VAR an = IF(HASONEVALUE(Calendario[Año]), VALUES(Calendario[Año]) & "", "2015-2025")
+			RETURN "Ficha de localidad · " & loc & " · " & an
+		displayFolder: 4 Textos y colores
+		lineageTag: 985e1399-4852-c071-f20f-a81596f705e5
+
+	partition Medidas = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    Quitada = Table.RemoveColumns(Origen, {"Columna1"})
+				in
+				    Quitada
+
+	annotation PBI_ResultType = Table

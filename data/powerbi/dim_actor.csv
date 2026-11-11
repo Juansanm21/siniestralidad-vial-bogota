@@ -1,0 +1,5 @@
+﻿actor,actor_orden,es_vulnerable
+Motociclista,1,Sí
+Peatón,2,Sí
+Ciclista,3,Sí
+Ocupante de otro vehículo,4,No

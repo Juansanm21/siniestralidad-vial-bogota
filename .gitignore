@@ -1,0 +1,17 @@
+# Datos pesados que no se suben (se regeneran con los scripts de src/)
+data/raw/
+data/processed/
+datos_csv/
+datos_csv.zip
+data/anuario_consolidado/*.csv
+# (sí se suben los .csv.gz de data/anuario_consolidado y los CSV de data/powerbi)
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Caché y configuración local de Power BI Desktop
+**/.pbi/
+*.tmp
+~$*

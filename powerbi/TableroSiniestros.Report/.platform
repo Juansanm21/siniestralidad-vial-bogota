@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "TableroSiniestros"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "228f9f21-5182-0060-633c-8981c0f93c43"
+  }
+}

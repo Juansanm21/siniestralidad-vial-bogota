@@ -1,0 +1,4 @@
+expression RutaDatos = "https://raw.githubusercontent.com/Juansanm21/siniestralidad-vial-bogota/main/data/anuario_consolidado/" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: f67e6666-fc60-df48-0b60-9ccf5fefc6d7
+
+	annotation PBI_ResultType = Text

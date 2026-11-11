@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "da49556e96c5f05168c1",
+  "displayName": "1 · ¿Cómo vamos?",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F4F6F9'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F4F6F9'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "ccb901f6cd78db13ecea",
+      "target": "8f901163c525160d327f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ccb901f6cd78db13ecea",
+      "target": "1fef24db8d25087aba54",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2cf16bd9f68974395b4a",
+      "target": "8f901163c525160d327f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2cf16bd9f68974395b4a",
+      "target": "1fef24db8d25087aba54",
+      "type": "NoFilter"
+    }
+  ]
+}

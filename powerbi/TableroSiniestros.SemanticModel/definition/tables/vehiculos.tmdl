@@ -1,0 +1,230 @@
+table vehiculos
+	lineageTag: fda4befc-b1e9-7b7e-4efc-bc877eac030e
+
+	column id_siniestro
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: id_siniestro
+		lineageTag: affffe1a-72b2-6cf9-54ba-aaa3e06c3b40
+
+	column Codigo_Accidente
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Codigo_Accidente
+		lineageTag: 7730fd21-7f61-905f-cd3b-3beb728c78f0
+
+	column Formulario
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Formulario
+		lineageTag: 2281dab2-426c-54a2-6cb2-cf3919b3cc02
+
+	column Fecha_Acc
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: Fecha_Acc
+		lineageTag: c478695c-81dd-5eaf-5a29-e4345bc3bb22
+
+	column AA_Acc
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: AA_Acc
+		lineageTag: b755aeae-833e-e272-a6af-005ace402e0f
+
+	column Codigo_Vehiculo
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Codigo_Vehiculo
+		lineageTag: 5705fdfe-35df-d1bb-730e-0dc4561bab3d
+
+	column Clase
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Clase
+		lineageTag: c54e109b-88f5-c414-e293-b416e901a77c
+
+	column Servicio
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Servicio
+		lineageTag: 787aa093-4bbf-e505-0326-50f7da64e51b
+
+	column Modalidad
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Modalidad
+		lineageTag: 0edc9dda-0df0-3768-d923-3de9ffa8f371
+
+	column Vehiculo_Viajaba_Clasificado
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Vehiculo_Viajaba_Clasificado
+		lineageTag: 99c75c8a-73df-1f82-a596-22ece90df672
+
+	column Tipo_SITP
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Tipo_SITP
+		lineageTag: beed90f6-5619-2b35-1344-76b3996a380a
+
+	column Con_Bicicleta
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Bicicleta
+		lineageTag: bf8cde35-e4d7-b7b5-9b8d-6bb363b1c91e
+
+	column Con_Carga
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Carga
+		lineageTag: 770d1453-608f-e97f-696a-7f6ebfada578
+
+	column Con_Embriaguez
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Embriaguez
+		lineageTag: 8fbcd31c-7b57-4bfc-00b0-73657f9e7108
+
+	column Con_Huecos
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Huecos
+		lineageTag: e356ff59-fb15-3c4f-e900-ad28cf9a2416
+
+	column Con_Menores
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Menores
+		lineageTag: af31a280-42d9-1f5f-fcb0-5d44c5fcf696
+
+	column Con_Moto
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Moto
+		lineageTag: ea725556-2361-b40d-66f3-10e05b4a52e0
+
+	column Con_Peaton
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Peaton
+		lineageTag: bc39342e-54c5-04b2-8a58-5532706cab4f
+
+	column Con_Persona_Mayor
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Persona_Mayor
+		lineageTag: 0ad5ac68-fdf7-b73b-e023-f07fa251e0a7
+
+	column Con_Rutas
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Rutas
+		lineageTag: fecea8a9-a3ec-2c53-9503-dfa1bb49e310
+
+	column Con_Tpi
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Tpi
+		lineageTag: 7a290dbc-9a09-6860-69ce-5bab2ca98f60
+
+	column Con_Tpp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Tpp
+		lineageTag: 173bd9fc-f3a6-a4d1-aa77-c923ba82f9fa
+
+	column Con_Velocidad
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Velocidad
+		lineageTag: 9847f0f3-0a08-3ca5-4a28-fbfc0a5eb63c
+
+	column Con_Sitp
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Sitp
+		lineageTag: e63eb447-cc8d-faa9-c5a5-f27d64bacae4
+
+	column Con_Troncal
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Troncal
+		lineageTag: 54ad02ed-52b3-b04d-ecf8-ac7e5794f556
+
+	column Con_Alimentador
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Alimentador
+		lineageTag: ffc24298-c753-72a4-5e89-da0a235996da
+
+	column Con_Zonal
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Zonal
+		lineageTag: 27e8b0e4-30a6-7d4a-a567-7daea69f4ad2
+
+	column Con_Provisional
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Provisional
+		lineageTag: 5ff4ca30-80ef-8891-a92a-2f1d6d8f386a
+
+	column Con_Articulado
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Articulado
+		lineageTag: 253b034b-13b8-1bba-049c-46564cc3b74c
+
+	column Con_Biarticulado
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Biarticulado
+		lineageTag: d9872491-f67e-dea6-16a6-e9b586a26adc
+
+	column Con_Padron_Dual
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Padron_Dual
+		lineageTag: fd588720-f3b0-b689-ccc8-4b81c0493d23
+
+	column Con_Servicio_Especial
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Servicio_Especial
+		lineageTag: 4e5ffdc3-d0f7-948f-438c-0300b1ba80e3
+
+	column Con_Taxi
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Con_Taxi
+		lineageTag: 947cdf49-9702-6b7e-1a9e-00a18797f589
+
+	column anuario_origen
+		dataType: string
+		summarizeBy: none
+		sourceColumn: anuario_origen
+		lineageTag: 50a899e1-9714-04ce-5dd7-dd551616514d
+
+	column grupo_vehiculo
+		dataType: string
+		summarizeBy: none
+		sourceColumn: grupo_vehiculo
+		lineageTag: 29489342-10a1-e2ed-e99f-41536218fbf2
+
+	partition vehiculos = m
+		mode: import
+		source =
+				let
+				    Binario = if Text.StartsWith(RutaDatos, "http") then Web.Contents(RutaDatos & "vehiculos.csv.gz") else File.Contents(RutaDatos & "vehiculos.csv.gz"),
+				    Origen = Csv.Document(Binary.Decompress(Binario, Compression.GZip), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    SinBOM = Table.TransformColumnNames(Encabezados, each Text.Replace(_, Character.FromNumber(65279), "")),
+				    Vacios = Table.TransformColumns(SinBOM, {}, each if _ = "" then null else _),
+				    Tipos = Table.TransformColumnTypes(Vacios, {{"id_siniestro", type text}, {"Codigo_Accidente", Int64.Type}, {"Formulario", type text}, {"Fecha_Acc", type date}, {"AA_Acc", Int64.Type}, {"Codigo_Vehiculo", Int64.Type}, {"Clase", type text}, {"Servicio", type text}, {"Modalidad", type text}, {"Vehiculo_Viajaba_Clasificado", type text}, {"Tipo_SITP", type text}, {"Con_Bicicleta", type text}, {"Con_Carga", type text}, {"Con_Embriaguez", type text}, {"Con_Huecos", type text}, {"Con_Menores", type text}, {"Con_Moto", type text}, {"Con_Peaton", type text}, {"Con_Persona_Mayor", type text}, {"Con_Rutas", type text}, {"Con_Tpi", type text}, {"Con_Tpp", type text}, {"Con_Velocidad", type text}, {"Con_Sitp", type text}, {"Con_Troncal", type text}, {"Con_Alimentador", type text}, {"Con_Zonal", type text}, {"Con_Provisional", type text}, {"Con_Articulado", type text}, {"Con_Biarticulado", type text}, {"Con_Padron_Dual", type text}, {"Con_Servicio_Especial", type text}, {"Con_Taxi", type text}, {"anuario_origen", type text}}, "en-US"),
+				    Banderas = Table.TransformColumns(Tipos, {{"Con_Bicicleta", each if _ = null then "NO" else _, type text}, {"Con_Carga", each if _ = null then "NO" else _, type text}, {"Con_Embriaguez", each if _ = null then "NO" else _, type text}, {"Con_Huecos", each if _ = null then "NO" else _, type text}, {"Con_Menores", each if _ = null then "NO" else _, type text}, {"Con_Moto", each if _ = null then "NO" else _, type text}, {"Con_Peaton", each if _ = null then "NO" else _, type text}, {"Con_Persona_Mayor", each if _ = null then "NO" else _, type text}, {"Con_Rutas", each if _ = null then "NO" else _, type text}, {"Con_Tpi", each if _ = null then "NO" else _, type text}, {"Con_Tpp", each if _ = null then "NO" else _, type text}, {"Con_Velocidad", each if _ = null then "NO" else _, type text}, {"Con_Sitp", each if _ = null then "NO" else _, type text}, {"Con_Troncal", each if _ = null then "NO" else _, type text}, {"Con_Alimentador", each if _ = null then "NO" else _, type text}, {"Con_Zonal", each if _ = null then "NO" else _, type text}, {"Con_Provisional", each if _ = null then "NO" else _, type text}, {"Con_Articulado", each if _ = null then "NO" else _, type text}, {"Con_Biarticulado", each if _ = null then "NO" else _, type text}, {"Con_Padron_Dual", each if _ = null then "NO" else _, type text}, {"Con_Servicio_Especial", each if _ = null then "NO" else _, type text}, {"Con_Taxi", each if _ = null then "NO" else _, type text}}),
+				    Grupo = Table.AddColumn(Banderas, "grupo_vehiculo", each let c = Text.Lower(if [Clase] = null then "" else [Clase]) in if Text.Contains(c, "moto") then "Moto" else if c = "bicicleta" then "Bicicleta" else if List.Contains({"camion, furgon", "tractocamion", "volqueta"}, c) then "Carga" else if List.Contains({"bus", "buseta", "microbus"}, c) then "Bus" else if c = "" or c = "no identificado" then "Sin dato" else "Liviano", type text)
+				in
+				    Grupo
+
+	annotation PBI_ResultType = Table

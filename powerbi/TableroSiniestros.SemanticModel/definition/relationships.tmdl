@@ -1,0 +1,12 @@
+relationship 3c725f37-c334-ea85-714a-dec115b46084
+	fromColumn: siniestros.Fecha_Acc
+	toColumn: Calendario.Fecha
+
+relationship 72140263-776f-e5bf-e089-a5750cc4d246
+	crossFilteringBehavior: bothDirections
+	fromColumn: actor_vial.id_siniestro
+	toColumn: siniestros.id_siniestro
+
+relationship 7f624653-8ba1-8546-eda0-52dad8e3fb5a
+	fromColumn: vehiculos.id_siniestro
+	toColumn: siniestros.id_siniestro
